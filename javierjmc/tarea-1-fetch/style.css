@@ -1,0 +1,63 @@
+:root{
+    --background: #100B00;
+    --card: #85CB33;
+    --shadow: #EFFFC8;
+    --text: #3B341F;
+}
+
+body{
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text);
+    font-size:large;
+    margin: 0;
+    padding-top: 20px;
+    
+}
+
+.container-img{
+    width: 190px;
+    position: relative;
+    top:10px;
+    z-index: -1;   
+}
+img{
+    width: 100%;
+    
+}
+
+.container{
+    background-color: var(--card);
+    width: 300px;
+    min-height: 200px;
+    padding: 25px;
+    border-radius: 2%;
+    box-shadow: 0 0 7px var(--shadow); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    
+}
+
+button{
+    background-color: var(--background);
+    font-weight:600;
+    padding: 10px;
+    width: 120px;
+    border-radius: 5px;
+    border: none;
+    font-size:large;
+    color:var(--shadow);
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: var(--text);
+}
+
+button:active{
+    background-color: var(--background);
+}
