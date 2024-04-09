@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './views/Home'
 import Contact from './views/Contact'
 import PostDetails from './components/PostDetails'
@@ -9,7 +9,8 @@ import Layout from './views/Layout'
 
 
 const routes = createBrowserRouter([
-  { path: '/', element: <Layout><Home /></Layout> },
+  { path: '/', element: <Navigate to="/posts" />},
+  { path: '/posts', index:true, element: <Layout><Home /></Layout> },
   { path: '/contact', element: <Layout><Contact /></Layout> },
   {
     path: '/posts',

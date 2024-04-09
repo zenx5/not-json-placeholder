@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import List from "../components/List"
 import ItemPost from "../components/ItemPost"
+import PostService from "../services/PostService"
 
 
 export default function Home() {
@@ -8,9 +9,9 @@ export default function Home() {
   const [search, setSearch] = useState('')
 
   useEffect(()=>{
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => response.json())
-      .then((json) => setPosts(json))
+    PostService
+      .getAll()
+      .then( data => setPosts(data) )
   },[])
 
   const handlerFilter = (value) => {
