@@ -18,7 +18,7 @@ export default function Home() {
   }
 
   return (
-    <div className="mx-20">
+    <div className="">
         <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Posts</h1>
         <div className="flex">
             <List onFilter={handlerFilter}>
