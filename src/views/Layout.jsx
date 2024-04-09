@@ -1,3 +1,4 @@
+import { useHowDoit } from "../context/HowDoitProvider";
 import Navigation from "../components/Navigation";
 import { NavLink } from "react-router-dom";
 
@@ -7,6 +8,9 @@ export default function Layout({ children }) {
         { id: 2, to: '/users', label: 'Users', className: ({isActive}) => isActive ? "py-2 px-20 border-b border-slate-100 rounded-t-lg bg-slate-300" : "py-2 px-20 border-b border-slate-100 rounded-t-lg hover:bg-slate-200" },
         { id: 3, to: '/albums', label: 'Albums', className: ({isActive}) => isActive ? "py-2 px-20 border-b border-slate-100 rounded-t-lg bg-slate-300" : "py-2 px-20 border-b border-slate-100 rounded-t-lg hover:bg-slate-200" },
     ]
+    const { createDataset } = useHowDoit()
+
+    const data = createDataset('navigation')
 
 
     return <div>
@@ -17,9 +21,10 @@ export default function Layout({ children }) {
                     <span>Very-free very-fake and very-reliable API for testing and prototyping.</span>
                     <span className="absolute top-6 bg-white group-hover:top-0 w-full transition-all duration-500">Click <a  href="https://jsonplaceholder.typicode.com/" target="_blank" className="underline">here</a> to go to the original but <span className="font-bold">fake</span> site</span>
                 </h1>
+                <p className="mb-1 text-lg">Powered by a group of friends eager to code</p>
             </div>
         </section>
-        <Navigation Element={NavLink} items={navigation} className="mx-auto max-w-4xl "/>
+        <Navigation Element={NavLink} items={navigation} className="mx-auto max-w-4xl " {...data}/>
         <main className="container mx-auto max-w-4xl">
             <>{ children }</>
         </main>

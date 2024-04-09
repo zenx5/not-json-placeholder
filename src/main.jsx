@@ -7,6 +7,7 @@ import './index.css'
 import Layout from './views/Layout'
 import { PostProvider } from './context/PostProvider'
 import Details from './views/Details'
+import { HowDoitProvider } from './context/HowDoitProvider'
 
 
 const routes = createBrowserRouter([
@@ -22,12 +23,20 @@ const routes = createBrowserRouter([
   }
 ])
 
+const info = {
+  navigation: <div className='px-10'>
+    <h1 className='text-4xl'>Navigation</h1>
+    <p className='text-lg'>This is the navigation section</p>
+  </div>
+}
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <HowDoitProvider content={info}>
       <PostProvider>
         <RouterProvider router={routes} />
       </PostProvider>
+    </HowDoitProvider>
   </React.StrictMode>,
 )
