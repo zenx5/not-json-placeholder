@@ -4,7 +4,7 @@ import ItemPost from "../components/ItemPost"
 import { usePosts } from "../context/PostProvider"
 
 
-export default function Home() {
+export default function Posts() {
   const { posts } = usePosts()
   const [search, setSearch] = useState('')
 
@@ -21,7 +21,7 @@ export default function Home() {
     <div className="">
         <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Posts</h1>
         <div className="flex">
-            <List onFilter={handlerFilter}>
+            <List onFilter={handlerFilter} data-howdoit="listuser">
               { posts.filter(handlerFilterPosts).map( post => <ItemPost key={post.id} id={post.id} title={post.title} /> )}
             </List>
         </div>

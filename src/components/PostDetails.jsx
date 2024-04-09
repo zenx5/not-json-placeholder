@@ -9,13 +9,13 @@ export default function PostDetails({post, comments}) {
             <h1 className="font-bold text-xl">Detalles del Post</h1>
             <NavLink to="/" className="block text-blue-500 hover:underline">Volver</NavLink>  
         </span>
-        <div className="flex text-lg">
+        <div className="flex text-lg" data-howdoit="contentpost">
             <div className="p-2">
                 <h2 className="font-bold mb-2">{ post?.title }</h2>
                 <p className="italic">{ post?.body}</p>
             </div>
         </div>
-        <List>
+        <List data-howdoit="postcomments">
             {comments.map( comment => <ItemComment key={comment.id} {...comment} />)}
         </List>
     </div>

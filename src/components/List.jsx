@@ -1,5 +1,5 @@
 import { useState } from "react"
-export default function List({ children, onFilter }) {
+export default function List({ children, onFilter, ...rest}) {
     const [search, setSearch] = useState('')
 
     const handlerChange = (event) => {
@@ -7,7 +7,7 @@ export default function List({ children, onFilter }) {
         if( onFilter ) onFilter(event.target.value)
     }
 
-    return <div className="">
+    return <div {...rest}>
         { onFilter && <input
             type="text"
             value={search}
