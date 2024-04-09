@@ -1,24 +1,8 @@
-import { useEffect, useState } from "react"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import List from "./List"
 import ItemComment from "./ItemComment"
 
-export default function PostDetails() {
-    const [post, setPost] = useState({})
-    const [comments, setComments] = useState([])
-    const { slug } = useParams()
-
-    useEffect(()=>{
-        const [id] = slug.split('-')
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-          .then((response) => response.json())
-          .then((json) => setPost(json))
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
-          .then((response) => response.json())
-          .then((json) => setComments(json))
-
-    },[slug])
-
+export default function PostDetails({post, comments}) {
 
     return <div className="mx-20">
         <span className="flex flex-row justify-between items-center mt-10 mb-5">
@@ -27,8 +11,8 @@ export default function PostDetails() {
         </span>
         <div className="flex text-lg">
             <div className="p-2">
-                <h2 className="font-bold mb-2">{ post.title }</h2>
-                <p className="italic">{ post.body}</p>
+                <h2 className="font-bold mb-2">{ post?.title }</h2>
+                <p className="italic">{ post?.body}</p>
             </div>
         </div>
         <List>

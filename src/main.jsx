@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './views/Home'
 import Contact from './views/Contact'
-import PostDetails from './components/PostDetails'
 import './index.css'
 import Layout from './views/Layout'
+import { PostProvider } from './context/PostProvider'
+import Details from './views/Details'
 
 
 const routes = createBrowserRouter([
@@ -15,7 +16,7 @@ const routes = createBrowserRouter([
   {
     path: '/posts',
     children: [
-      { path: ':slug', element: <Layout><PostDetails /></Layout> }
+      { path: ':slug', element: <Layout><Details /></Layout> }
     ]
   }
 ])
@@ -25,6 +26,8 @@ const routes = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <h1 className="text-center text-3xl my-5">React Router Example</h1>
-    <RouterProvider router={routes} />
+      <PostProvider>
+        <RouterProvider router={routes} />
+      </PostProvider>
   </React.StrictMode>,
 )

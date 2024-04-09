@@ -1,18 +1,12 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import List from "../components/List"
 import ItemPost from "../components/ItemPost"
-import PostService from "../services/PostService"
+import { usePosts } from "../context/PostProvider"
 
 
 export default function Home() {
-  const [posts, setPosts] = useState([])
+  const { posts } = usePosts()
   const [search, setSearch] = useState('')
-
-  useEffect(()=>{
-    PostService
-      .getAll()
-      .then( data => setPosts(data) )
-  },[])
 
   const handlerFilter = (value) => {
     setSearch(value.toLowerCase())
