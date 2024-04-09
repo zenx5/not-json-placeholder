@@ -25,7 +25,7 @@ export function HowDoitProvider({content, children }) {
             if( howdoit ) {
                 setCurrent(howdoit)
                 ref.current.style.display = 'block'
-                setTimeout(()=>setShow( prev =>  !prev),100)
+                setTimeout(()=>setShow( () =>  true),100)
             }
         }
         document.addEventListener('click', clickIt)
@@ -44,6 +44,8 @@ export function HowDoitProvider({content, children }) {
         createDataset
     }
 
+    const handlerClose = () => setShow(false)
+
     return <HowDoitContext.Provider value={values}>
         {children}
         <span
@@ -51,8 +53,23 @@ export function HowDoitProvider({content, children }) {
             style={{
                 opacity: show ? 1 : 0
             }}
-            className="bg-slate-500 rounded-xl transition-all duration-1000 fixed bottom-5 w-2/4 h-60 shadow-lg shadow-slate-400 mx-auto left-1/4">
+            className={
+                "transition-all duration-1000 " +
+                "bg-slate-500 shadow-lg shadow-slate-400 rounded-xl " +
+                "fixed bottom-5 w-2/4 h-60  mx-auto left-1/4 "
+            }
+            >
                 { current && content[current] }
+                <button
+                    onClick={handlerClose}
+                    className={
+                        "w-5 h-5 " +
+                        "absolute -top-1 -right-1 " +
+                        "flex justify-center items-center " +
+                        "border border-slate-500 bg-white " +
+                        "cursor-pointer rounded-full"
+                    }
+                >x</button>
             </span>
     </HowDoitContext.Provider>
 }
