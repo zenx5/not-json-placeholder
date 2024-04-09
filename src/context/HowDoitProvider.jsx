@@ -56,7 +56,7 @@ export function HowDoitProvider({content, children }) {
             className={
                 "transition-all duration-1000 " +
                 "bg-slate-500 shadow-lg shadow-slate-400 rounded-xl " +
-                "fixed bottom-5 w-2/4 h-60  mx-auto left-1/4 "
+                "fixed bottom-5 w-1/2 h-60  mx-auto left-1/4 "
             }
             >
                 { current && content[current] }
