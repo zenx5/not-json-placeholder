@@ -9,6 +9,7 @@ import Posts from './views/Posts'
 import Details from './views/Details'
 import Users from './views/Users'
 import Albums from './views/Albums'
+import CommentDetails from './views/CommentDetails'
 
 
 const routes = createBrowserRouter([
@@ -16,6 +17,7 @@ const routes = createBrowserRouter([
   { path: '/posts', index:true, element: <Layout><Posts /></Layout> },
   { path: '/users', element: <Layout><Users /></Layout> },
   { path: '/albums', element: <Layout><Albums /></Layout> },
+  { path: '/posts/comments-details', element: <Layout><CommentDetails /></Layout> },
   {
     path: '/posts',
     children: [
