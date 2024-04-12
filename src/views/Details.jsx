@@ -9,8 +9,9 @@ export default function Details(){
     const [post, setPost] = useState(null)
 
     useEffect(()=>{
-        const [id] = slug.split('-')[0]
-        setPost( posts.find( post => post.id==id ) )
+        const [id, ...rest] = slug.split('-')
+        console.log( posts )
+        setPost( posts.find( post => post.id==id && post.title==rest.join(' ') ) )
 
     },[slug, posts])
 
@@ -18,6 +19,6 @@ export default function Details(){
         return comments.filter( comment => comment.postId===post.id )
     }
 
-    return post && <PostDetails post={post} comments={ getComments() } />
+    return post ? <PostDetails post={post} comments={ getComments() } /> : <h1 className="text-4xl text-center mt-20">Not Found</h1>
 
 }
