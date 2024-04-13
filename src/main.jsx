@@ -18,15 +18,6 @@ import Albums from "./views/Albums";
 const routes = createBrowserRouter([
   { path: "/", element: <Navigate to="/posts" /> },
   {
-    path: "/posts",
-    index: true,
-    element: (
-      <Layout>
-        <Posts />
-      </Layout>
-    ),
-  },
-  {
     path: "/users",
     element: (
       <Layout>
@@ -45,24 +36,11 @@ const routes = createBrowserRouter([
   {
     path: "/posts",
     children: [
-      {
-        path: ":slug",
-        element: (
-          <Layout>
-            <Details />
-          </Layout>
-        ),
-      },
+      { path: "", index: true, element: <Layout><Posts /></Layout> },
+      { path: ":slug", element: <Layout><Details /></Layout> },
+      { path: ":slug/comments/:commentId", element: <Layout><Comment /></Layout>}
     ],
-  },
-  {
-    path: "/post/:postId/comments/:commentId",
-    element: (
-      <Layout>
-        <Comment />
-      </Layout>
-    ),
-  },
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
