@@ -1,26 +1,23 @@
 import { createContext, useEffect, useState, useContext } from "react";
-import PostService from "../services/PostService";
+import UserService from "../services/UserService";
 import CommentService from "../services/CommentService";
 
-const PostContext = createContext({
-    posts: [],
-    comments: [],
-    currentPost: null,
-    currentComment: null
+const UserContext = createContext({
+    users: [],    
+    currentUser: null, 
 })
 
-export function usePosts() {
-    return useContext(PostContext)
+export function useUsers() {
+    return useContext(UserContext)
 }
-
 
 export function PostProvider({ children }) {
     const [posts, setPosts] = useState([])
     const [comments, setComments] = useState([])
 
     useEffect(()=>{
-        PostService.getAll().then( data => setPosts(data) ) 
-        CommentService.getAll().then( data => setComments(data) ) 
+        PostService.getAll().then( data => setPosts(data) )
+        CommentService.getAll().then( data => setComments(data) )
     },[])
 
 

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 export default function Details(){
     const { posts, comments } = usePosts()
     const { slug } = useParams()
-    const [post, setPost] = useState(null)
+    const [post, setPost] = useState(null)    
 
     useEffect(()=>{
         const [id] = slug.split('-')[0]
@@ -18,6 +18,6 @@ export default function Details(){
         return comments.filter( comment => comment.postId===post.id )
     }
 
-    return post && <PostDetails post={post} comments={ getComments() } />
+    return post && <PostDetails post={post} comments={ getComments() }  />
 
 }

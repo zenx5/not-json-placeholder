@@ -1,8 +1,7 @@
 import { NavLink } from "react-router-dom"
-import List from "./List"
-import ItemComment from "./ItemComment"
+import ItemFullComment from "./ItemFullComment"
 
-export default function PostDetails({post, comments}) {
+export default function CommentDetails({post, comment}) {
 
     return <div className="mx-20">
         <span className="flex flex-row justify-between items-center mt-10 mb-5">
@@ -14,9 +13,8 @@ export default function PostDetails({post, comments}) {
                 <h2 className="font-bold mb-2">{ post?.title }</h2>
                 <p className="italic">{ post?.body}</p>
             </div>
-        </div>
-        <List>
-            {comments.map( comment => <ItemComment key={comment.id} {...comment} post={post} />)}
-        </List>
+        </div>        
+        <ItemFullComment {...comment} />
+        
     </div>
 }
