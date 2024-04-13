@@ -1,17 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Posts from './views/Posts'
-import Users from './views/Users'
 import './index.css'
-import Layout from './views/Layout'
 import { PostProvider } from './context/PostProvider'
-import Details from './views/Details'
+// HowDoit
 import { HowDoitProvider } from 'how-do-it'
 import Navigation from './how/Navigation'
 import ListUser from './how/ListUser'
+// Views
+import Layout from './views/Layout'
+import Posts from './views/Posts'
+import Users from './views/Users'
 import Albums from './views/Albums'
-
+import Details from './views/Details'
 
 const routes = createBrowserRouter([
   { path: '/', element: <Navigate to="/posts" />},

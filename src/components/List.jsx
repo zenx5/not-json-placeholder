@@ -14,6 +14,6 @@ export default function List({ children, onFilter, ...rest}) {
             onChange={handlerChange}
             className="border border-slate-400 rounded-lg p-1 "
             placeholder="Buscar usuario"/>}
-        <ul>{children}</ul>
+        <ul className="divide-y">{children}</ul>
     </div>
 }
