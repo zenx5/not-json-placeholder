@@ -14,14 +14,19 @@ import CommentDetails from './views/CommentDetails'
 
 const routes = createBrowserRouter([
   { path: '/', element: <Navigate to="/posts" />},
-  { path: '/posts', index:true, element: <Layout><Posts /></Layout> },
   { path: '/users', element: <Layout><Users /></Layout> },
   { path: '/albums', element: <Layout><Albums /></Layout> },
-  { path: '/posts/comments-details', element: <Layout><CommentDetails /></Layout> },
   {
     path: '/posts',
     children: [
-      { path: ':slug', element: <Layout><Details /></Layout> }
+      { path: '', index:true, element: <Layout><Posts /></Layout> },
+      { path: ':slug',
+        children: [
+          { path: '', element: <Layout><Details /></Layout>},
+          { path: 'comments/:id', element: <Layout><CommentDetails /></Layout> },
+        ]
+      },
+      
     ]
   }
 ])

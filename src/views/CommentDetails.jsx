@@ -1,19 +1,22 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useParams } from "react-router-dom"
 import {  usePosts } from '../context/PostProvider'
+import { useEffect, useState } from "react"
 
 export default function CommentDetails(  ) {
-  
-  const { posts } = usePosts()
+  const [comment, setComment] = useState(null)
+  const { id, slug } = useParams()
+  const { comments } = usePosts()
 
+  useEffect(()=> {
+    if( id && comments.length > 0 ) setComment(comments.find( comment => comment.id == id ))
+  },[comments, id])
   
   return (
-    <div className="py-4">
-      
-      <h4 className="font-bold">Titulo</h4>
-      { posts }
-      
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic quam velit odio expedita assumenda accusantium reiciendis odit obcaecati rem earum vero tempora, perspiciatis dolor numquam at veniam! Ipsam, nisi consequuntur?</p>
-      <NavLink to='/posts' className="block text-blue-500 hover:underline">Volver</NavLink>
+    <div className="py-4 flex flex-col gap-1">
+      <p><span className="font-bold">{comment?.email}</span> say:</p>
+      <h4 className="font-bold">{ comment?.name }</h4>
+      <p>{comment?.body}</p>
+      <NavLink to={`/posts/${slug}`} className="block text-blue-500 hover:underline">Volver</NavLink>
     </div>
   )
 }

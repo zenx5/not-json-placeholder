@@ -6,7 +6,7 @@ export default function ItemComment({id, name, email, body}) {
         <p className="text-sm text-slate-600">{email}</p>
         <span className="flex flex-row justify-between">
             <p className="text-slate-800">{body.substring(0,30)}...</p>
-            <NavLink to='/posts/comments-details' className="mx-5 hover:underline">Leer mas</NavLink>
+            <NavLink to={`comments/${id}`} className="mx-5 hover:underline">Leer mas</NavLink>
         </span>
     </div>
 }
