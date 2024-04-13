@@ -1,5 +1,5 @@
 import { useState } from "react"
-export default function List({ children, onFilter, ...rest }) {
+export default function List({ children, onFilter, ...rest}) {
     const [search, setSearch] = useState('')
 
     const handlerChange = (event) => {

@@ -17,9 +17,10 @@ export default function Layout({ children }) {
                     <span>Very-free very-fake and very-reliable API for testing and prototyping.</span>
                     <span className="absolute top-6 bg-white group-hover:top-0 w-full transition-all duration-500">Click <a  href="https://jsonplaceholder.typicode.com/" target="_blank" className="underline">here</a> to go to the original but <span className="font-bold">fake</span> site</span>
                 </h1>
+                <p className="mb-1 text-lg">Powered by a group of friends eager to code</p>
             </div>
         </section>
-        <Navigation Element={NavLink} items={navigation} className="mx-auto max-w-4xl "/>
+        <Navigation Element={NavLink} items={navigation} className="mx-auto max-w-4xl " data-howdoit="navigation"/>
         <main className="container mx-auto max-w-4xl">
             <>{ children }</>
         </main>
