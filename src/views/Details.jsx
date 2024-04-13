@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { usePosts } from "../context/PostProvider";
+import { useData } from "../context/DataProvider";
 import PostDetails from "../components/PostDetails";
 import { useState, useEffect } from "react";
 
 export default function Details(){
-    const { posts, comments } = usePosts()
+    const { posts, comments } = useData()
     const { slug } = useParams()
     const [post, setPost] = useState(null)
 

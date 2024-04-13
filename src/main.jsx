@@ -4,7 +4,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 import './index.css'
 import Layout from './views/Layout'
-import { PostProvider } from './context/PostProvider'
+import { DataProvider } from './context/DataProvider'
 import Posts from './views/Posts'
 import Details from './views/Details'
 import Users from './views/Users'
@@ -28,8 +28,8 @@ const routes = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-      <PostProvider>
+      <DataProvider>
         <RouterProvider router={routes} />
-      </PostProvider>
+      </DataProvider>
   </React.StrictMode>,
 )
