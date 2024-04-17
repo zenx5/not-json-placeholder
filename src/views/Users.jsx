@@ -1,6 +1,7 @@
 import { useState } from "react";
 import List from "../components/List";
 import { useData } from "../context/DataProvider";
+import ItemUser from "../components/ItemUser";
 
 
 export default function Users() {
@@ -20,19 +21,8 @@ export default function Users() {
     <div className="">
       <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Usuarios</h1>
       <div className="flex">
-          <List onFilter={handlerFilter}>
-          { users.filter(handlerFilterUsers).map( user => <li key={user.id}>
-            <div className="flex items-center justify-between p-4 border-b border-gray-200">
-              <div>
-                <h2 className="text-lg font-bold">{user.name}</h2>
-                <p className="text-sm text-gray-500">{user.email}</p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">{user.phone}</p>
-                <p className="text-sm text-gray-500">{user.website}</p>
-              </div>
-            </div>
-          </li> )}
+          <List onFilter={handlerFilter} className="w-full">
+            { users.filter(handlerFilterUsers).map( user => <ItemUser key={user.id} {...user} />)}
           </List>
       </div>
     </div>

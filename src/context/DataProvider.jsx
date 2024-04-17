@@ -4,17 +4,17 @@ import CommentService from "../services/CommentService";
 import UserService from "../services/UserService";
 import AlbumService from "../services/AlbumService";
 
-const PostContext = createContext({
+const Context = createContext({
     users: [],
     posts: [],
     comments: [],
     albums: [],
     currentPost: null,
-    currentComments: null
+    currentComment: null
 })
 
 export function useData() {
-    return useContext(PostContext)
+    return useContext(Context)
 }
 
 export function DataProvider({ children }) {
@@ -31,5 +31,5 @@ export function DataProvider({ children }) {
     },[])
 
 
-    return <PostContext.Provider value={{ users, posts, comments, albums }}>{children}</PostContext.Provider>
+    return <Context.Provider value={{ users, posts, comments, albums }}>{children}</Context.Provider>
 }

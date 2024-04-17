@@ -21,7 +21,7 @@ export default function Albums() {
     <div className="">
       <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Albums</h1>
       <div className="flex">
-          <List onFilter={handlerFilter}>
+          <List onFilter={handlerFilter} className="w-full">
             {albums.filter(handlerFilterAlbums).map( album => <ItemAlbum key={album.id} id={album.id} title={album.title} /> )}
           </List>
       </div>
