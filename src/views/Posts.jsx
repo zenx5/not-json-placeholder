@@ -33,7 +33,7 @@ export default function Home() {
         <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Posts</h1>
         <div className="flex flex-col" data-howdoit="list-post">
             <List onFilter={handlerFilter}>
-              { posts.filter(handlerFilterPosts).map( post => <ItemPost key={post.id} id={post.id} title={renderTitle(post.title)} /> )}
+              { posts.filter(handlerFilterPosts).map( post => <ItemPost key={post.id} id={post.id} title={post.title}>{ renderTitle(post.title) }</ItemPost> )}
             </List>
             <Pagination/>
         </div>

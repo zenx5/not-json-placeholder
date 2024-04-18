@@ -12,7 +12,7 @@ export default function List({ children, onFilter, ...rest }) {
             type="text"
             value={search}
             onChange={handlerChange}
-            className="border border-slate-400 rounded-lg p-1 "
+            className="border border-slate-400 rounded px-4 py-2 mb-2 outline-none"
             placeholder="Buscar usuario"/>}
         <ul className="divide-y">{children}</ul>
     </div>
