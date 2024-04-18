@@ -10,7 +10,7 @@ import Albums from './views/Albums'
 import Comment from "./views/Comment";
 import "./index.css";
 import { HowDoitProvider } from 'how-do-it'
-import PostList from './how/PostList'
+import List from './how/List'
 import Pagination from './how/Pagination'
 
 const routes = createBrowserRouter([
@@ -42,7 +42,9 @@ const routes = createBrowserRouter([
 ]);
 
 const info = {
-  'list-post': <PostList />,
+  'list-post': <List tag="posts" />,
+  'list-user': <List tag="usuarios" />,
+  'list-album': <List tag="albums" />,
   'pagination': <Pagination />
 }
 
