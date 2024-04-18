@@ -9,6 +9,9 @@ import Users from './views/Users'
 import Albums from './views/Albums'
 import Comment from "./views/Comment";
 import "./index.css";
+import { HowDoitProvider } from 'how-do-it'
+import PostList from './how/PostList'
+import Pagination from './how/Pagination'
 
 const routes = createBrowserRouter([
   { path: "/", element: <Navigate to="/posts" /> },
@@ -38,10 +41,17 @@ const routes = createBrowserRouter([
   }
 ]);
 
+const info = {
+  'list-post': <PostList />,
+  'pagination': <Pagination />
+}
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
       <DataProvider>
-        <RouterProvider router={routes} />
+        <HowDoitProvider content={info}>
+          <RouterProvider router={routes} />
+        </HowDoitProvider>
       </DataProvider>
   </React.StrictMode>,
 )

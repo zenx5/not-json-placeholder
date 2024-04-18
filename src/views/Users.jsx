@@ -20,7 +20,7 @@ export default function Users() {
   return (
     <div className="">
       <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Usuarios</h1>
-      <div className="flex">
+      <div className="flex" data-howdoit="list-post">
           <List onFilter={handlerFilter} className="w-full">
             { users.filter(handlerFilterUsers).map( user => <ItemUser key={user.id} {...user} />)}
           </List>

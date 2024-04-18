@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function ItemPost({id, title}) {
 
-    const slugText =title.toLowerCase().replace(/ /g, '-')
+    const slugText =String( title ).toLowerCase().replace(/ /g, '-')
     
     const renderSlug = () => {
         return `/posts/${id}-${slugText}`

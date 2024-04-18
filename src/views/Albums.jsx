@@ -2,7 +2,7 @@ import { useState } from "react";
 import List from "../components/List";
 import { useData } from "../context/DataProvider";
 import ItemAlbum from "../components/ItemAlbum";
-
+import Pagination from "../components/Pagination";
 
 export default function Albums() {
   const { albums } = useData()
@@ -20,10 +20,13 @@ export default function Albums() {
   return (
     <div className="">
       <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Albums</h1>
-      <div className="flex">
+      <div className="flex flex-col">
           <List onFilter={handlerFilter} className="w-full">
-            {albums.filter(handlerFilterAlbums).map( album => <ItemAlbum key={album.id} id={album.id} title={album.title} /> )}
+            <div className="grid grid-cols-2 grid-flow-row gap-2" data-howdoit="list-post">
+              {albums.filter(handlerFilterAlbums).map( album => <ItemAlbum key={album.id} id={album.id} title={album.title} /> )}
+            </div>
           </List>
+          <Pagination />
       </div>
     </div>
   );
