@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import { usePosts } from "../context/PostProvider";
+import { useData } from "../context/DataProvider";
 import CommentDetails from "../components/CommentDetails";
 import { useState, useEffect } from "react";
 
 export default function Comment(){
-    const { posts, comments  } = usePosts()
+    const { posts, comments  } = useData()
     const { slug, commentId } = useParams()
     const [post, setPost] = useState(null)
     const [comment, setComment] = useState(null)

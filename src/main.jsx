@@ -1,19 +1,17 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import {
-  Navigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
-
-import "./index.css";
-import Layout from "./views/Layout";
-import { PostProvider } from "./context/PostProvider";
-import Posts from "./views/Posts";
-import Details from "./views/Details";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import Layout from './views/Layout'
+import { DataProvider } from './context/DataProvider'
+import Posts from './views/Posts'
+import Details from './views/Details'
+import Users from './views/Users'
+import Albums from './views/Albums'
 import Comment from "./views/Comment";
-import Users from "./views/Users";
-import Albums from "./views/Albums";
+import "./index.css";
+import { HowDoitProvider } from 'how-do-it'
+import List from './how/List'
+import Pagination from './how/Pagination'
 
 const routes = createBrowserRouter([
   { path: "/", element: <Navigate to="/posts" /> },
@@ -43,10 +41,19 @@ const routes = createBrowserRouter([
   }
 ]);
 
+const info = {
+  'list-post': <List tag="posts" />,
+  'list-user': <List tag="usuarios" />,
+  'list-album': <List tag="albums" />,
+  'pagination': <Pagination />
+}
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <PostProvider>
-      <RouterProvider router={routes} />
-    </PostProvider>
-  </React.StrictMode>
-);
+      <DataProvider>
+        <HowDoitProvider content={info}>
+          <RouterProvider router={routes} />
+        </HowDoitProvider>
+      </DataProvider>
+  </React.StrictMode>,
+)

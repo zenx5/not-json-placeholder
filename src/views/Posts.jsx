@@ -1,14 +1,13 @@
 import {  useState } from "react"
 import List from "../components/List"
 import ItemPost from "../components/ItemPost"
-import { usePosts } from "../context/PostProvider"
-import { useOnline } from "../context/useOnline"
+import { useData } from "../context/DataProvider"
+import Pagination from "../components/Pagination"
 
 
 export default function Home() {
-  const { posts } = usePosts()
+  const { posts } = useData()
   const [search, setSearch] = useState('')
-  const online = useOnline()
 
   const handlerFilter = (value) => {
     setSearch(value.toLowerCase())
@@ -19,14 +18,24 @@ export default function Home() {
     return post.title.toLowerCase().includes(search)
   }
 
+  const renderTitle = (title) => {
+    const items = title.split(search)
+
+    return items.reduce((acc,item, index)=>[
+      ...acc,
+      item,
+      <span key={index} className="bg-yellow-200">{search}</span>
+    ],[]).slice(0,-1)
+  }
+
   return (
     <div className="">
         <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Posts</h1>
-        <p>{ online ? 'online' : 'offline'}</p>
-        <div className="flex">
+        <div className="flex flex-col" data-howdoit="list-post">
             <List onFilter={handlerFilter}>
-              { posts.filter(handlerFilterPosts).map( post => <ItemPost key={post.id} id={post.id} title={post.title} /> )}
+              { posts.filter(handlerFilterPosts).map( post => <ItemPost key={post.id} id={post.id} title={post.title}>{ renderTitle(post.title) }</ItemPost> )}
             </List>
+            <Pagination/>
         </div>
     </div>
   )

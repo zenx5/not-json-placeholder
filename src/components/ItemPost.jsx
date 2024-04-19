@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-export default function ItemPost({id, title}) {
+export default function ItemPost({id, title, children}) {
 
-    const slugText =title.toLowerCase().replace(/ /g, '-')
+    const slugText =String( title ).toLowerCase().replace(/ /g, '-')
     
     const renderSlug = () => {
         return `/posts/${id}-${slugText}`
@@ -10,6 +10,6 @@ export default function ItemPost({id, title}) {
 
     return <NavLink to={renderSlug()} 
             className="block hover:bg-slate-200 text-slate-900 hover:text-black py-2 px-2">
-                    {title}
+                    { children }
             </NavLink>
 }
