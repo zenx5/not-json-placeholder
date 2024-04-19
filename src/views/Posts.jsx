@@ -4,7 +4,7 @@ import ItemPost from "../components/ItemPost"
 import { useData } from "../context/DataProvider"
 import Pagination from "../components/Pagination"
 
-const POSTSQUANTITY = 10
+const QUANTITY = 10
 const PAGEINITIAL = 1
 
 
@@ -16,14 +16,14 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(PAGEINITIAL)
 
   /** Constantes para la paginación */
-  const endIndex = POSTSQUANTITY * currentPage 
-  const startIndex = endIndex - POSTSQUANTITY  
+  const endIndex = QUANTITY * currentPage 
+  const startIndex = endIndex - QUANTITY  
 
   /** Division de los posts */
   const nPosts = posts.slice(startIndex, endIndex)
 
   /** Total de páginas para la paginación */
-  const nPages = Math.ceil(posts.length / POSTSQUANTITY)
+  const nPages = Math.ceil(posts.length / QUANTITY)
 
   const handlerFilter = (value) => {
     setSearch(value.toLowerCase())
