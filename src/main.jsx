@@ -7,6 +7,7 @@ import Posts from './views/Posts'
 import Details from './views/Details'
 import Users from './views/Users'
 import Albums from './views/Albums'
+import AlbumDetails from './components/AlbumDetails'; // Importa AlbumDetails
 import Comment from "./views/Comment";
 import "./index.css";
 import { HowDoitProvider } from 'how-do-it'
@@ -28,6 +29,14 @@ const routes = createBrowserRouter([
     element: (
       <Layout>
         <Albums />
+      </Layout>
+    ),
+  },
+  {
+    path: "/albums/:albumId", // Nueva ruta para la vista de detalles del álbum
+    element: (
+      <Layout>
+        <AlbumDetails />
       </Layout>
     ),
   },
