@@ -1,5 +1,6 @@
 import Navigation from "../components/Navigation";
 import { NavLink } from "react-router-dom";
+import IconGithub from "../assets/github.svg";
 
 export default function Layout({ children }) {
     const navigation = [
@@ -10,9 +11,12 @@ export default function Layout({ children }) {
 
     const links = [
         { label:'Guide', href:'https://jsonplaceholder.typicode.com/guide' },
-        { label:'Link #2', href:'#' },
-        { label:'Link #3', href:'#' },
-        { label:'Link #4', href:'#' },
+        { label:<>Sponsor <span className="italic">that</span> project</>, href:'https://github.com/sponsors/typicode' },
+        { label:'Our Blog', href:'https://zenx5.pro/blog' },
+        { label:<span className="flex flex-row gap-2 text-white bg-black py-0.5 px-4 rounded ">
+            <img src={IconGithub} width={20} height={20} />
+            <span>Check out </span>
+        </span>, href:'https://github.com/zenx5/not-json-placeholder' },
     ]
 
 
