@@ -44,13 +44,15 @@ export default function Home() {
             <List onFilter={handlerFilter}>
               { posts.filter(handlerFilterPosts).filter(handlerFilterPagination).map( post => <ItemPost key={post.id} id={post.id} title={post.title}>{ renderTitle(post.title) }</ItemPost> )}
             </List>
-            <Pagination
-              label="posts"
-              items={posts}
-              itemsPerPage={10}
-              onChange={handlerChangePage}
-            />
         </div>
+        <Pagination
+          data-howdoit="pagination"
+          className="py-5"
+          label="posts"
+          items={posts}
+          itemsPerPage={10}
+          onChange={handlerChangePage}
+        />
     </div>
   )
 }

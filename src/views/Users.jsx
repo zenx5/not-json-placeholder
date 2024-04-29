@@ -35,6 +35,8 @@ export default function Users() {
             { users.filter(handlerFilterUsers).filter(handlerFilterPagination).map( user => <ItemUser key={user.id} {...user} />)}
           </List>
           <Pagination
+            data-howdoit="pagination"
+            className="py-5"
             label="users"
             items={users}
             onChange={handlerChangePage}

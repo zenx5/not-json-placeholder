@@ -36,6 +36,8 @@ export default function Albums() {
             </div>
           </List>
           <Pagination
+            data-howdoit="pagination"
+            className="py-5"
             label="albums"
             items={albums}
             itemsPerPage={6}

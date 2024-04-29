@@ -35,7 +35,7 @@ export default function Layout({ children }) {
             </div>
         </section>
         <Navigation Element={NavLink} items={navigation} className="mx-auto max-w-4xl "/>
-        <main className="container mx-auto max-w-4xl">
+        <main className="container mx-auto max-w-4xl mb-20">
             <>{ children }</>
         </main>
     </div>
