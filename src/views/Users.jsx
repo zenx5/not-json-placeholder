@@ -49,7 +49,7 @@ export default function Users() {
             data-howdoit="pagination"
             className="py-5"
             label="users"
-            items={users}
+            items={users.filter(handlerFilterUsers)}
             onChange={handlerChangePage}
           />
       </div>

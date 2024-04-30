@@ -54,7 +54,7 @@ export default function Albums() {
             data-howdoit="pagination"
             className="py-5"
             label="albums"
-            items={albums}
+            items={albums.filter(handlerFilterAlbums)}
             itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
             onChange={handlerChangePage}
           />
