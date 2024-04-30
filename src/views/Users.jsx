@@ -34,7 +34,7 @@ export default function Users() {
     <div className="">
       <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Usuarios</h1>
       <div className="flex flex-col" data-howdoit="list-user">
-          <List onFilter={handlerFilter} className="w-full">
+          <List onFilter={handlerFilter} className="w-full" placeholderText={'Buscar Users'}>
             { completeElements(
                 users
                 .filter(handlerFilterUsers)

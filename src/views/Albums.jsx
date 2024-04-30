@@ -37,7 +37,7 @@ export default function Albums() {
     <div className="">
       <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Albums</h1>
       <div className="flex flex-col">
-          <List onFilter={handlerFilter} className="w-full">
+          <List onFilter={handlerFilter} className="w-full" placeholderText={'Buscar Albums'}>
             <div className="grid grid-cols-2 grid-flow-row gap-2" data-howdoit="list-album">
               {
                 completeElements(

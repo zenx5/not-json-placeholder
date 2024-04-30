@@ -10,10 +10,10 @@ export default function Layout({ children }) {
     ]
 
     const links = [
-        { label:'Guide', href:'https://jsonplaceholder.typicode.com/guide' },
-        { label:<>Sponsor <span className="italic">that</span> project</>, href:'https://github.com/sponsors/typicode' },
-        { label:'Our Blog', href:'https://zenx5.pro/blog' },
-        { label:<span className="flex flex-row gap-2 text-white bg-black py-0.5 px-4 rounded ">
+        { id: 'label1', label:'Guide', href:'https://jsonplaceholder.typicode.com/guide' },
+        { id: 'label2', label:<>Sponsor <span className="italic">that</span> project</>, href:'https://github.com/sponsors/typicode' },
+        { id: 'label3', label:'Our Blog', href:'https://zenx5.pro/blog' },
+        { id: 'label4', label:<span className="flex flex-row gap-2 text-white bg-black py-0.5 px-4 rounded ">
             <img src={IconGithub} width={20} height={20} />
             <span>Check out </span>
         </span>, href:'https://github.com/zenx5/not-json-placeholder' },
@@ -25,7 +25,7 @@ export default function Layout({ children }) {
             <h3 className="font-bold line-through">JSONPlaceholder</h3>
             <nav>
                 <ul className="flex flex-row gap-5">
-                    { links.map( link => <a key={link.label} href={link.href} className="" target="_blank" >{link.label}</a>)}
+                    { links.map( link => <a key={link.id} href={link.href} className="" target="_blank" >{link.label}</a>)}
                 </ul>
             </nav>
         </header>

@@ -37,14 +37,14 @@ export default function Home() {
     setStartIndex(newStart)
     setEndIndex(newEnd)
   }
-
+  
   const handlerFilterPagination = (_, index) => index >= startIndex && index < endIndex
 
   return (
     <div className="">
         <h1 className="mt-10 font-bold text-xl">Lista de todos nuestros Posts</h1>
         <div className="flex flex-col" data-howdoit="list-post">
-            <List onFilter={handlerFilter}>
+            <List onFilter={handlerFilter} placeholderText={'Buscar Posts'}>
               {
                 completeElements(
                   posts
@@ -61,7 +61,7 @@ export default function Home() {
           data-howdoit="pagination"
           className="py-5"
           label="posts"
-          items={posts.filter(handlerFilterPosts).filter(handlerFilterPagination)}
+          items={posts.filter(handlerFilterPosts)}
           itemsPerPage={DEFAULT_ITEMS_PER_PAGE}
           onChange={handlerChangePage}
         />
