@@ -42,5 +42,18 @@ export default function Layout({ children }) {
         <main className="container mx-auto max-w-4xl mb-20">
             <>{ children }</>
         </main>
+        <footer className="container mx-auto max-w-4xl grid grid-cols-7 gap-4 md:flex-row justify-between py-6 pb-0 mb-0 text-[#374151] px-4 border-t border-[#374151]">
+            <span className="col-span-4 text-md">
+                <h2 className="text-xl mb-2 font-semibold">About this fake</h2>
+                <p className="mb-4">We think that <a href="https://jsonplaceholder.typicode.com" className="font-bold text-blue-500 hover:underline" target="blank">JSONPlaceholder</a> is a great project, which has contributed a lot to the dev world. For this reason, we decided to make a tribute where we have implemented its API and tell a little how we did it</p>
+                <p>In addition, we have implemented How Do it, to show how our students approached this challenge.</p>
+            </span>
+            <span className="col-span-3 text-md">
+                <h2 className="text-xl mb-2 font-semibold">{'"'}How Do It{'"'} is available in <a className="text-blue-500 hover:underline" href="https://www.npmjs.com/package/how-do-it" target="blank">npm</a></h2>
+                <p className="mb-4">This is a module we created during the development of this project, you can use it to add comments to your interface</p>
+                <p>With our students, we left their assignments commented with this module. And at the end of the project we turn them into useful aids for future students.</p>
+            </span>
+
+        </footer>
     </div>
 }
