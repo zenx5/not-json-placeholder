@@ -32,26 +32,33 @@ export default function List({ tag }) {
             </div>
             <p className="mb-1">En esta sección podrás encontrar una lista de {tag} que podrás filtrar y paginar.</p>
             <p>La forma como obtenemos los datos desde JSON placeholder es a través de la <span className="text-method">API fetch</span>:</p>
-            <span className="text-xs bg-slate-600 py-1 px-4 block rounded tracking-widest w-full">
+            <span className="text-xs bg-slate-600 py-2 px-4 block rounded tracking-widest w-full mt-2">
             {
                 asynMode ?
                 <>
-                    <p><span className="text-method">fetch</span>(<span className="text-string">{"'"}https://jsonplaceholder.typicode.com/{tag}{"'"}</span>)</p>
-                    <p className="ml-4">.<span className="text-method">then</span>( response ={'>'} response.<span className="text-method">json</span>() )</p>
-                    <p className="ml-4">.<span className="text-method">then</span>( data ={'>'} console.<span className="text-method">log</span>(data) )</p>
-                </>
-                :<>
                     <p><span className="text-method">async</span> function(){'{'}</p>
                     <p className="ml-4">
                         <span className="font-bold text-white">const </span> response = <span className="font-bold text-white"> await </span><span className="text-method">fetch</span>(<span className="text-string">{"'"}https://jsonplaceholder.typicode.com/{tag}{"'"}</span>)
                     </p>
-                    <p className="ml-8">
-                        <span className="font-bold text-white">const </span> data = 
-                        <span className="font-bold text-white"> await</span> response.<span className="text-method">json</span>()
+                    <p className="ml-4">
+                        <span className="font-bold text-white">const </span> data = <span className="font-bold text-white">await</span> response.<span className="text-method">json</span>()
                     </p>
                     <p>{'}'}</p>
                 </>
+                :<>
+                    <p><span className="text-method">fetch</span>(<span className="text-string">{"'"}https://jsonplaceholder.typicode.com/{tag}{"'"}</span>)</p>
+                    <p className="ml-4">.<span className="text-method">then</span>( response ={'>'} response.<span className="text-method">json</span>() )</p>
+                    <p className="ml-4">.<span className="text-method">then</span>( data ={'>'} console.<span className="text-method">log</span>(data) )</p>
+                </>
             }
+            </span>
+            <p className="mt-2">La forma como implementariamos esto en nuestro proyecto de react seria usando el hook <span className="text-method">useEffect</span> </p>
+            <span className="text-xs bg-slate-600 py-2 px-4 block rounded tracking-widest w-full mt-2">
+                <p><span className="text-[#b797f2]">useEffect</span>{'({'}</p>
+                <p><span className="ml-4 text-method">fetch</span>(<span className="text-string">{"'"}https://jsonplaceholder.typicode.com/{tag}{"'"}</span>)</p>
+                <p className="ml-8">.<span className="text-method">then</span>( response ={'>'} response.<span className="text-method">json</span>() )</p>
+                <p className="ml-8">.<span className="text-method">then</span>( data ={'>'} <span className="font-bold text-white">setPosts(</span> data <span className="font-bold text-white">)</span> ) <span className="text-green-500">{'//'}setPosts es el setter del estado posts </span></p> 
+                <p>{'},[])'} <span className="text-green-500">{'//'}No necesitamos pasar ninguna dependencia por lo que pasamos el array vacio</span></p>
             </span>
         </div>
     </div>
