@@ -12,7 +12,7 @@ export default function Layout({ children }) {
     const links = [
         { id: 'label1', label:'Guide', href:'https://jsonplaceholder.typicode.com/guide' },
         { id: 'label2', label:<>Sponsor <span className="italic">that</span> project</>, href:'https://github.com/sponsors/typicode' },
-        { id: 'label3', label:'Our Blog', href:'https://zenx5.pro/blog' },
+        { id: 'label3', label:'Our Blog', href:'https://www.linkedin.com/in/zenx5/recent-activity/articles' },
         { id: 'label4', label:<span className="flex flex-row gap-2 text-white bg-black py-0.5 px-4 rounded ">
             <img src={IconGithub} width={20} height={20} />
             <span>Check out </span>
