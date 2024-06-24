@@ -20,7 +20,7 @@ export default function Layout({ children }) {
     ]
 
 
-    return <div>
+    return <div className="px-2">
         <header className="container mx-auto max-w-4xl flex flex-col md:flex-row justify-between py-6 mb-3 text-[#192937]">
             <h3 className="font-bold line-through">JSONPlaceholder</h3>
             <nav>
@@ -33,8 +33,8 @@ export default function Layout({ children }) {
             <div className="container mx-auto max-w-4xl group text-[#374151]">
                 <span className="text-6xl">Not {'{'}JSON{'}'} Placeholder</span>
                 <h1 className="mt-2 text-lg flex flex-col relative overflow-hidden">
-                    <span>Very-free very-fake and very-reliable API for testing and prototyping.</span>
-                    <span className="absolute top-6 bg-white group-hover:top-0 w-full transition-all duration-500">Click <a  href="https://jsonplaceholder.typicode.com/" target="_blank" className="underline">here</a> to go to the original but <span className="font-bold">fake</span> site</span>
+                    <span className="px-1">Very-free very-fake and very-reliable API for testing and prototyping.</span>
+                    <span className="absolute top-14 px-1 bg-zinc-200 group-hover:top-0 w-full h-full transition-all duration-500">Click <a  href="https://jsonplaceholder.typicode.com/" target="_blank" className="underline">here</a> to go to the original but <span className="font-bold">fake</span> site</span>
                 </h1>
             </div>
         </section>
